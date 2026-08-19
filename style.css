@@ -1,0 +1,796 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+}
+
+#vanta-bg {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+}
+
+#vanta-bg canvas {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.menu-item {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+}
+
+.menu-item:hover {
+    background-color: #7a9e3a;
+    border-radius: 5px;
+}
+
+.menu-item img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    background: transparent;
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+}
+
+#leftsidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    z-index: 10;
+}
+
+#leftsidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#leftsidebar li {
+    margin-bottom: 15px;
+}
+
+.banner-content {
+    display: flex;
+    gap: 35px;
+    padding: 80px 40px;
+}
+
+.banner-img {
+    width: 150px;
+    height: auto;
+    left: 100px;
+    top: 80px;
+    position: fixed;
+    filter:
+        drop-shadow(0 12px 20px rgba(0, 0, 0, 0.7))
+        drop-shadow(0 0 15px rgba(50, 255, 100, 0.25));
+}
+
+.text {
+    position: fixed;
+    left: 300px;
+    top: 80px;
+    width: auto;
+    height: auto;
+    color: darkgray;
+    animation: textUp 1s ease-out;
+}
+
+.text h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0 0 12px 0;
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
+}
+
+.text p {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+}
+
+.text h1 span {
+    color: #9cff00;
+}
+
+@keyframes textUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.social-medya {
+    margin-top: 150px;
+    margin-left: 100px;
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+}
+
+.social-medya img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: invert(1);
+    mix-blend-mode: screen;
+}
+
+.social-medya a:hover img {
+    transform: scale(1.2) translateY(-5px);
+    filter: invert(1) drop-shadow(0 0 10px white);
+    transition: 0.3s ease;
+}
+
+.social-medya span {
+    font-size: 18px;
+    font-weight: 300;
+    font-family: Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+    letter-spacing: 1px;
+}
+
+/* =========================
+   KUTULAR
+   ========================= */
+
+.social-card {
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+    position: relative;
+    left: 150px;
+    top: 100px;
+    margin: 20px 0 0 20px !important;
+    padding: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(57, 255, 20, 0.8);
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 10px rgba(0, 255, 0, 0.6),
+        0 0 25px rgba(0, 255, 0, 0.5),
+        0 0 50px rgba(0, 255, 0, 0.3);
+}
+
+
+.social-card::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 25px;
+    box-shadow:
+        0 0 10px #39ff14,
+        0 0 25px #39ff14,
+        0 0 45px rgba(57, 255, 20, 0.8);
+    opacity: 0.8;
+    z-index: -1;
+    animation: electricGlow 1.2s infinite alternate;
+}
+
+.social-card::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -25px;
+    width: 30px;
+    height: 60%;
+    background: #39ff14;
+    filter: blur(8px);
+    opacity: 0.8;
+    animation: electricSide 0.7s infinite alternate;
+}
+
+@keyframes neonGlow {
+    from {
+        box-shadow:
+            0 0 8px rgba(0, 255, 0, 0.5),
+            0 0 20px rgba(0, 255, 0, 0.4),
+            0 0 35px rgba(0, 255, 0, 0.2);
+    }
+    to {
+        box-shadow:
+            0 0 15px rgba(0, 255, 0, 0.9),
+            0 0 35px rgba(0, 255, 0, 0.7),
+            0 0 60px rgba(0, 255, 0, 0.5);
+    }
+}
+
+@keyframes electricGlow {
+    from {
+        opacity: 0.4;
+        transform: scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+@keyframes electricSide {
+    from {
+        opacity: 0.4;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(8px);
+    }
+}
+
+/* Kutu içeriği */
+.social-card .social-medya {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-card .social-medya img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    opacity: 0.75;
+    background: transparent;
+    filter:
+        drop-shadow(0 0 5px rgba(255,255,255,0.6))
+        drop-shadow(0 0 10px rgba(255,255,255,0.35));
+}
+
+.social-card .social-medya a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-card .social-medya span {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+    letter-spacing: 1px;
+}
+
+.social-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.social-card.show .social-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.social-card.show .social-text:nth-child(1) {
+    transition-delay: 0.5s;
+}
+
+.social-card.show .social-text:nth-child(2) {
+    transition-delay: 0.8s;
+}
+
+.social-card.show .social-text:nth-child(3) {
+    transition-delay: 1.1s;
+}
+
+/* İkinci kutudaki yazı */
+.text2 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+    letter-spacing: 1px;
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+.text2 .word {
+    display: inline-block;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-right: 5px;
+}
+
+
+@media (max-width: 600px) {
+    .banner-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 45px 20px;
+    }
+
+    .banner-img {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        left: 95px;
+        top: 45px;
+    }
+
+    .text {
+        position: absolute;
+        left: 210px;
+        top: 55px;
+    }
+
+    .text h1 {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 0 0 6px 0;
+    }
+
+    .text p {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+    }
+
+    .social-card {
+        left: 60px;
+    }
+
+    .social-card.second-card {
+        left: 60px;
+        margin-top: 120px !important;
+    }
+}
+
+.social-card:not(.second-card).show {
+    animation: ilkKutuGiris 1s ease forwards !important;
+}
+
+@keyframes ilkKutuGiris {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.85);
+        box-shadow: 0 0 0 rgba(57, 255, 20, 0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.05);
+        box-shadow:
+            0 0 15px rgba(57,255,20,.8),
+            0 0 35px rgba(57,255,20,.6),
+            0 0 60px rgba(57,255,20,.4);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        box-shadow:
+            0 0 10px rgba(0,255,0,.6),
+            0 0 25px rgba(0,255,0,.5),
+            0 0 50px rgba(0,255,0,.3);
+    }
+}
+
+/* 📱 MOBİL DÜZEN */
+@media (max-width: 600px) {
+
+    .social-card {
+        width: 230px !important;
+        height: 230px !important;
+
+        position: relative !important;
+        left: 0px!important;
+        top: 0px !important;
+
+        margin: 20px auto 35px auto !important;
+
+        padding: 20px !important;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        transform: none !important;
+    }
+
+    /* İlk ve ikinci kutu arasında belirgin boşluk */
+    .social-card + .social-card {
+        margin-top: 60px !important;
+    }
+
+    /* Kutuların içeriği taşmasın */
+    .social-card h1,
+    .social-card .text2 {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Üstteki fotoğraf/yazı ile kutu arasına mesafe */
+    .social-card:first-of-type {
+        margin-top: 70px !important;
+    }
+}
+@media (max-width: 600px) {
+
+    /* 1. KUTU */
+    .social-card:not(.second-card) {
+        position: relative !important;
+        left: 40px !important;
+        top: 100px !important;
+        margin: 20px auto 45px auto !important;
+    }
+}
+
+/* ============================= */
+/* MOBİL KUTU DÜZELTME - EN SONDA */
+/* ============================= */
+
+@media (max-width: 600px) {
+
+    /* 1. KUTU */
+    .social-card:not(.second-card) {
+        position: relative !important;
+        left: 40px !important;
+        top: 100px !important;
+
+        margin: 20px auto 0 !important;
+
+        width: 230px !important;
+        height: 230px !important;
+
+        transform: none !important;
+    }
+
+    /* 1. kutunun animasyonu */
+    .social-card:not(.second-card) {
+        animation: firstCardMobile 0.8s ease forwards !important;
+    }
+    /* Kutuların içeriği taşmasın */
+    .social-card h1,
+    .social-card .text2 {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+/* 1. kutunun giriş efekti */
+@keyframes firstCardMobile {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@media (max-width: 600px) {
+    html,
+    body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+}
+.text3 {
+    width: 200px;
+    margin: 80px 0 120px 170px;
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8px;
+    font-weight: 300;
+    letter-spacing: 2px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 18px rgba(156, 255, 0, 0.7),
+        0 0 35px rgba(156, 255, 0, 0.4);
+
+    opacity: 0;
+    transform: translateY(30px);
+
+    animation: text3Glow 1.2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes text3Glow {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =====================================================
+   BUTONLARLA KUTU ANİMASYONLARI
+   ===================================================== */
+
+/* 1. kutu aktif olduğunda büyür ve yeşil ışığı güçlenir */
+.social-card:not(.second-card).active-card {
+    transform: scale(1.10) !important;
+    border-color: #9cff00 !important;
+    box-shadow:
+        0 0 15px #9cff00,
+        0 0 35px rgba(156, 255, 0, 0.85),
+        0 0 70px rgba(156, 255, 0, 0.55) !important;
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease,
+        border-color 0.45s ease;
+}
+
+.social-card:not(.second-card).active-card::before {
+    box-shadow:
+        0 0 15px #9cff00,
+        0 0 35px #9cff00,
+        0 0 65px rgba(156, 255, 0, 0.95) !important;
+}
+
+.social-card:not(.second-card).active-card::after {
+    background: #9cff00 !important;
+    box-shadow: 0 0 20px #9cff00;
+}
+
+
+
+/* Mobilde scale efekti korunur */
+@media (max-width: 600px) {
+    .social-card:not(.second-card).active-card {
+        transform: scale(1.08) !important;
+    }
+}
+
+/* =====================================================
+   2. KUTU - TEMİZ TEK KURAL
+   ===================================================== */
+.social-card.second-card {
+    width: 230px !important;
+    height: 230px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+
+    margin: 160px 0 80px 20px !important;
+    left: 120px !important;
+    top: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(40px) !important;
+
+    background: rgba(0,0,0,.65) !important;
+    border: 1px solid rgba(57,255,20,.8) !important;
+    border-radius: 20px !important;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        box-shadow .45s ease,
+        border-color .45s ease !important;
+}
+
+/* Scroll ile açılır */
+.social-card.second-card.is-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+}
+
+/* 3. buton: sadece ikinci kutu büyür ve mor ışık verir */
+.social-card.second-card.is-active {
+    transform: translateY(0) scale(1.10) !important;
+    border-color: #b56cff !important;
+    box-shadow:
+        0 0 15px #b56cff,
+        0 0 35px rgba(181,108,255,.85),
+        0 0 70px rgba(181,108,255,.55) !important;
+}
+
+.social-card.second-card.is-active::before {
+    box-shadow:
+        0 0 15px #b56cff,
+        0 0 35px #b56cff,
+        0 0 65px rgba(181,108,255,.95) !important;
+}
+
+.social-card.second-card.is-active::after {
+    background: #b56cff !important;
+    box-shadow: 0 0 20px #b56cff !important;
+}
+
+/* Mobilde sadece konum ayarlanır */
+@media (max-width: 600px) {
+    .social-card.second-card {
+        left: 0 !important;
+        top: 0 !important;
+        width: 230px !important;
+        height: 230px !important;
+        margin: 80px auto 35px !important;
+    }
+
+    .social-card.second-card.is-active {
+        transform: translateY(0) scale(1.08) !important;
+    }
+}
+
+
+
+/* =====================================================
+   FINAL - 2. KUTUYU 1. KUTU İLE AYNI ÖLÇÜYE GETİR
+   ===================================================== */
+
+/* 1. kutunun mevcut ölçüsü: 200 x 200.
+   Sadece 2. kutuyu buna eşitliyoruz. */
+.social-card.second-card {
+    width: 200px !important;
+    height: 200px !important;
+    min-height: 200px !important;
+    box-sizing: border-box !important;
+
+    /* 1. kutuyla aynı yatay hizaya getir */
+    left: 150px !important;
+}
+
+/* Açılınca ve 3. butonla büyüyünce yatay konumu değişmesin */
+.social-card.second-card.is-visible {
+    left: 150px !important;
+}
+
+.social-card.second-card.is-active {
+    left: 150px !important;
+}
+
+/* 3. butondaki ışık: açık yeşil */
+.social-card.second-card.is-active {
+    border-color: #9cff00 !important;
+    box-shadow:
+        0 0 15px #9cff00,
+        0 0 35px rgba(156,255,0,.85),
+        0 0 70px rgba(156,255,0,.55) !important;
+}
+
+.social-card.second-card.is-active::before {
+    box-shadow:
+        0 0 15px #9cff00,
+        0 0 35px #9cff00,
+        0 0 65px rgba(156,255,0,.95) !important;
+}
+
+.social-card.second-card.is-active::after {
+    background: #9cff00 !important;
+    box-shadow: 0 0 20px #9cff00 !important;
+}
+
+/* Mobilde de 2. kutu, 1. kutuyla aynı 230x230 ölçüyü korusun */
+@media (max-width: 600px) {
+    .social-card.second-card {
+        width: 230px !important;
+        height: 230px !important;
+        min-height: 230px !important;
+        left: 40px !important;
+    }
+
+    .social-card.second-card.is-visible,
+    .social-card.second-card.is-active {
+        left: 40px !important;
+    }
+}
+.social-card + .social-card {
+    margin-top: 200px !important;
+}
+#text3.green {
+    color: #39ff14 !important;
+    text-shadow:
+        0 0 8px #39ff14,
+        0 0 18px #39ff14,
+        0 0 35px rgba(57, 255, 20, 0.8);
+    transition: all 0.5s ease;
+}
+
+#newText3 {
+    opacity: 0;
+    transform: translateY(15px);
+    margin-top: 10px;
+    color: white;
+    text-shadow: 0 0 8px rgba(255,255,255,0.7);
+    transition: all 0.6s ease;
+}
+
+#newText3.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+#text3.green {
+    color: #39ff14 !important;
+    text-shadow:
+        0 0 8px #39ff14,
+        0 0 18px #39ff14,
+        0 0 35px rgba(57, 255, 20, 0.8);
+    transition: all 0.5s ease;
+}
+
+#newText3 {
+    opacity: 0;
+    transform: translateY(15px);
+    margin-top: 10px;
+    color: white;
+    text-shadow: 0 0 8px rgba(255,255,255,0.7);
+    transition: all 0.6s ease;
+}
+
+#newText3.show {
+    opacity: 1;
+    transform: translateY(0);
+}
