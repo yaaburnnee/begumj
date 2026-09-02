@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BegümJ</title>
+  <meta name="description" content="Begüm Bayram Kişisel Web Sitesi">
+  <link rel="icon" href="image/bg.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.birds.min.js"></script>
+</head>
+
+<body>
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-mark">B<span>J</span></div>
+    <div class="loader-track"><i></i></div>
+    <div class="loader-meta"><span>INITIALIZING</span><span id="loaderPercent">0%</span></div>
+  </div>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div class="scroll-progress"><i></i></div>
+
+  <div id="vanta-bg"></div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="mouse-glow"></div>
+
+  <aside id="leftsidebar" aria-label="Navigation">
+    <div class="sidebar-line"></div>
+    <ul>
+      <li>
+        <a href="index.html" class="menu-item" aria-label="Home">
+          <img src="leftbar/home.svg" alt="Home">
+        </a>
+      </li>
+      <li>
+        <a href="#" class="menu-item" id="aboutButton" aria-label="About">
+          <img src="leftbar/about.svg" alt="About">
+        </a>
+      </li>
+      <li>
+        <a href="#" id="workButton" class="menu-item" aria-label="Work">
+          <img src="leftbar/work.svg" alt="Work">
+        </a>
+      </li>
+      <li>
+        <a href="#" id="button4" class="menu-item" aria-label="Contact">
+          <img src="leftbar/message.svg" alt="Contact">
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-photo-wrap">
+        <div class="hero-ring"></div>
+        <img src="banner/beg.jpeg" alt="BegümJ" class="banner-img">
+      </div>
+
+      <div class="text">
+        <div class="eyebrow">PERSONAL / DIGITAL SPACE</div>
+        <h1>Begüm<span>J</span></h1>
+        <p>personal webpage</p>
+        <div class="hero-line"><i></i><span>SCROLL TO EXPLORE</span></div>
+      </div>
+    </section>
+
+    <section class="content">
+      <article class="social-card tilt-card" id="socialCard">
+        <div class="card-glow"></div>
+        <div class="card-label">SOCIAL / 01</div>
+
+        <div class="social-medya">
+          <a href="https://www.instagram.com/y.aaburnnee/" target="_blank" rel="noopener noreferrer" class="social-link">
+            <span class="icon-box"><img src="sosyalmedya/ig.png" alt="Instagram"></span>
+            <span class="social-text">y.aaburnnee</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-medya">
+          <a href="https://www.tiktok.com/@y.aaburnnee" target="_blank" rel="noopener noreferrer" class="social-link">
+            <span class="icon-box"><img src="sosyalmedya/tt.png" alt="TikTok"></span>
+            <span class="social-text">y.aaburnnee</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-medya">
+          <a href="https://open.spotify.com/user/31nj3dstmfjgx75dyrnbt3rz42ti?si=b6ea333b81494ad0" target="_blank" rel="noopener noreferrer" class="social-link">
+            <span class="icon-box"><img src="sosyalmedya/spoti.png" alt="Spotify"></span>
+            <span class="social-text">Begüm</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="social-card second-card tilt-card" id="secondCard">
+        <div class="card-glow"></div>
+        <div class="card-label">ABOUT / 02</div>
+        <p class="text2">
+          <span class="word">Hello!</span>
+          <span class="word">Welcome</span>
+          <span class="word">to</span>
+          <span class="word">my</span>
+          <span class="word">website.</span>
+          <span class="word">This</span>
+          <span class="word">website</span>
+          <span class="word">belongs</span>
+          <span class="word">entirely</span>
+          <span class="word">to</span>
+          <span class="word">me.</span>
+          <span class="word">It</span>
+          <span class="word">features</span>
+          <span class="word">my</span>
+          <span class="word">personal</span>
+          <span class="word">social</span>
+          <span class="word">media.</span>
+        </p>
+      </article>
+
+      <footer class="site-footer" id="text3">
+        <span>24.04.26</span>
+      </footer>
+        <span class="date-label">mertkalayj</span>
+        <div id="newText3"></div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    window.addEventListener("load", () => {
+      if (window.VANTA && window.VANTA.BIRDS && window.THREE) {
+        VANTA.BIRDS({
+          el: "#vanta-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200,
+          minWidth: 200,
+          scale: 1,
+          scaleMobile: 1,
+          color1: 0x7c3aed,
+          color2: 0x2563eb,
+          birdSize: 1.15,
+          wingSpan: 24,
+          quantity: 3.2,
+          backgroundColor: 0x05040a,
+          backgroundAlpha: 1
+        });
+      }
+    });
+
+    const loader = document.querySelector("#loader");
+    const loaderPercent = document.querySelector("#loaderPercent");
+    const cursorDot = document.querySelector(".cursor-dot");
+    const cursorRing = document.querySelector(".cursor-ring");
+    const progress = document.querySelector(".scroll-progress i");
+
+    let loadValue = 0;
+    const loaderTimer = setInterval(() => {
+      loadValue += Math.floor(Math.random() * 9) + 4;
+      if (loadValue >= 100) {
+        loadValue = 100;
+        clearInterval(loaderTimer);
+        setTimeout(() => document.body.classList.add("loaded"), 180);
+      }
+      if (loaderPercent) loaderPercent.textContent = loadValue + "%";
+      const track = document.querySelector(".loader-track i");
+      if (track) track.style.width = loadValue + "%";
+    }, 55);
+
+    window.addEventListener("pointermove", (e) => {
+      if (cursorDot) {
+        cursorDot.style.left = e.clientX + "px";
+        cursorDot.style.top = e.clientY + "px";
+      }
+      if (cursorRing) {
+        cursorRing.style.left = e.clientX + "px";
+        cursorRing.style.top = e.clientY + "px";
+      }
+    }, { passive: true });
+
+    const interactiveSelectors = "a, button, .menu-item, .social-card, .project-card";
+    document.querySelectorAll(interactiveSelectors).forEach(el => {
+      el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
+      el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+    });
+
+    const updateProgress = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const value = max > 0 ? (window.scrollY / max) * 100 : 0;
+      if (progress) progress.style.width = value + "%";
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const firstCard = document.querySelector("#socialCard");
+      const secondCard = document.querySelector("#secondCard");
+      const aboutButton = document.querySelector("#aboutButton");
+      const workButton = document.querySelector("#workButton");
+      const button4 = document.querySelector("#button4");
+      const text3 = document.querySelector("#text3");
+      const newText3 = document.querySelector("#newText3");
+      const mouseGlow = document.querySelector(".mouse-glow");
+
+      // Subtle mouse-following light.
+      window.addEventListener("pointermove", (e) => {
+        document.documentElement.style.setProperty("--mx", e.clientX + "px");
+        document.documentElement.style.setProperty("--my", e.clientY + "px");
+      }, { passive: true });
+
+      // Professional 3D card tilt; intentionally kept subtle.
+      document.querySelectorAll(".tilt-card").forEach(card => {
+        card.addEventListener("pointermove", (e) => {
+          if (window.innerWidth <= 700) return;
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width - 0.5;
+          const y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.setProperty("--rx", `${-y * 7}deg`);
+          card.style.setProperty("--ry", `${x * 7}deg`);
+          card.style.setProperty("--gx", `${(x + 0.5) * 100}%`);
+          card.style.setProperty("--gy", `${(y + 0.5) * 100}%`);
+        });
+        card.addEventListener("pointerleave", () => {
+          card.style.setProperty("--rx", "0deg");
+          card.style.setProperty("--ry", "0deg");
+          card.style.setProperty("--gx", "50%");
+          card.style.setProperty("--gy", "50%");
+        });
+      });
+
+      // First card / About interaction.
+      aboutButton?.addEventListener("click", (e) => {
+        e.preventDefault();
+        firstCard.classList.toggle("active-card");
+      });
+
+      // Scroll reveal + staggered text.
+      let revealed = false;
+      const revealSecondCard = () => {
+        if (revealed) return;
+        const rect = secondCard.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 90) {
+          revealed = true;
+          secondCard.classList.add("is-visible");
+          const words = secondCard.querySelectorAll(".word");
+          words.forEach((word, i) => {
+            setTimeout(() => word.classList.add("show"), 280 + i * 105);
+          });
+        }
+      };
+
+      window.addEventListener("scroll", revealSecondCard, { passive: true });
+      window.addEventListener("resize", revealSecondCard);
+      revealSecondCard();
+
+      // Work button focuses the second card.
+      workButton?.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        document.querySelectorAll(".menu-item").forEach(item => item.classList.remove("menu-active"));
+        workButton.classList.add("menu-active");
+
+        secondCard.classList.add("is-visible", "is-active");
+        secondCard.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        const words = secondCard.querySelectorAll(".word");
+        words.forEach((word, i) => {
+          setTimeout(() => word.classList.add("show"), 120 + i * 80);
+        });
+      });
+
+      // Contact button: keeps the minimal footer and scrolls to it.
+      button4?.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        document.querySelectorAll(".menu-item").forEach(item => item.classList.remove("menu-active"));
+        button4.classList.add("menu-active");
+
+        text3.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+  </script>
+</body>
+</html>
