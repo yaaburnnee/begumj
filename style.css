@@ -649,3 +649,8 @@ body {
     transition-duration: .01ms !important;
   }
 }
+#text3,
+.date-label {
+    position: relative !important;
+    top: 40px !important;
+}
